@@ -62,7 +62,7 @@ export default function SystemSection({ eyebrow = 'Complete compressed air solut
               <p className="mono text-[11px] text-red">● Air is here · {String(step + 1).padStart(2, '0')} / {String(SYSTEM_STEPS.length).padStart(2, '0')}</p>
               <h3 className="font-display mt-1.5 text-[20px] font-bold">{s.label} <span className="text-[14px] font-semibold text-blue">· {s.role}</span></h3>
               <p className="mt-1 text-[13.5px] leading-[1.5] text-ink-2">{s.detail}</p>
-              <div className="mt-3 flex gap-2">
+              <div className="mt-3 flex flex-wrap gap-2">
                 <Link href={`/products/${s.slug}`} className="btn btn-ghost btn-sm bg-white">View {s.label.toLowerCase()}</Link>
                 <a className="btn btn-red btn-sm" target="_blank" rel="noopener noreferrer"
                   href={whatsappLink('Hello Parth, I need a quote for a complete compressed air system: Screw compressor + Air receiver + Pre filter + Refrigerated air dryer + After filter.')}>

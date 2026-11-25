@@ -10,7 +10,7 @@ import { placeLabel, easeInOut, clamp01 } from '@/lib/three/project';
 
 const STEPS = ['Air receiver — hydro-tested', 'Crankcase & crankshaft', 'Pistons & cast-iron cylinders', 'Intercooler & valve plates', 'Motor, flywheel & belt guard'];
 // label: [title, sub, number, x, y as a fraction of a 1440×900 stage]
-const LABELS: [string, string, string, number, number][] = [ // [title, sub, n, (unused x, y)]
+export const LABELS: [string, string, string, number, number][] = [ // [title, sub, n, (unused x, y)]
   ['Air receiver', 'Hydro-tested · 70 – 25,000 L', '01', 1040 / 1440, 700 / 900],
   ['Crankcase & crankshaft', 'Balanced, forged steel', '02', 510 / 1440, 600 / 900],
   ['Cast-iron cylinders', 'Deep fins for 24/7 cooling', '03', 500 / 1440, 250 / 900],

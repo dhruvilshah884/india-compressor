@@ -110,7 +110,7 @@ export function Turntable({ model, className = '' }: { model: ModelKey; classNam
 }
 
 /** Spec card (left), counter + next (bottom left), used-in chips and drag hint — the chrome of concept image 04. */
-export function ProductCard({ product, index, chapter }: { product: Product; index: number; total?: number; chapter?: string }) {
+export function ProductCard({ product, index, chapter, details = true }: { product: Product; index: number; total?: number; chapter?: string; details?: boolean }) {
   const variants = variantsFor(product);
   const [vi, setVi] = useState(() => defaultVariant(product));
   useEffect(() => setVi(defaultVariant(product)), [product]);
@@ -141,7 +141,8 @@ export function ProductCard({ product, index, chapter }: { product: Product; ind
       <div className="mt-3.5 flex gap-2.5 md:mt-5">
         <a href={whatsappLink(`Hello Parth, please quote ${product.name} — ${v.chip}.`)} target="_blank" rel="noopener noreferrer" className="btn btn-red max-md:hidden">Request quote</a>
         <a href={whatsappLink(`Hello Parth, please send the spec sheet PDF for ${product.name}.`)} target="_blank" rel="noopener noreferrer" className="btn btn-ghost max-md:h-10 max-md:flex-1 max-md:px-4 max-md:text-[14px]"><span className="md:hidden">⤓ Spec sheet</span><span className="hidden md:inline">⤓ Spec sheet PDF</span></a>
-        <Link href={`/products/${product.slug}`} className="btn btn-ghost btn-sm flex-1 md:hidden">Details</Link>
+        {details && <Link href={`/products/${product.slug}`} className="btn btn-ghost btn-sm flex-1 md:hidden">Details</Link>}
+        {!details && <a href={whatsappLink(`Hello Parth, please quote ${product.name} — ${v.chip}.`)} target="_blank" rel="noopener noreferrer" className="btn btn-red btn-sm flex-1 md:hidden">Get quote</a>}
       </div>
     </div>
   );

@@ -34,10 +34,10 @@ export default function AboutPage() {
           <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-ink-2">
             {SITE.name} designs and manufactures air compressors, air dryers, filters, receivers, chillers and vacuum pumps for textiles, chemicals, pharma, PET, dairy, automobile and food plants — and supplies complete compressed-air systems built around them.
           </p>
-          <dl className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
+          <dl className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">
             {STATS.map((s) => (
-              <div key={s.label} className="card p-6">
-                <dd className="font-display text-[34px] font-bold leading-none">{s.value}</dd>
+              <div key={s.label} className="card p-4 md:p-6">
+                <dd className="font-display whitespace-nowrap text-[24px] font-bold leading-none md:text-[34px]">{s.value}</dd>
                 <dt className="mt-2 text-[13.5px] text-muted">{s.label}</dt>
               </div>
             ))}

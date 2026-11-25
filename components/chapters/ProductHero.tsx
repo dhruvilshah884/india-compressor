@@ -23,7 +23,7 @@ export default function ProductHero({ slug }: { slug: string }) {
               <ModelThumb model={p.model} className="absolute inset-0" />
             </div>
             <div className="mt-3">
-              <ProductCard product={p} index={i} total={total} details={false} />
+              <ProductCard product={p} index={i} total={total} details={false} heading="h1" />
             </div>
           </div>
         </ThumbStage>
@@ -36,7 +36,7 @@ export default function ProductHero({ slug }: { slug: string }) {
       <Turntable model={p.model} className="absolute inset-0" />
       <MobileProgress index={i} total={total} label={p.short} fill={(i + 1) / total} />
       <div className="wrap pointer-events-none relative z-10 flex h-full flex-col justify-end pb-24 md:justify-start md:pb-0 md:pt-[126px]">
-        <ProductCard product={p} index={i} total={total} />
+        <ProductCard product={p} index={i} total={total} heading="h1" />
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-[34px] z-10 hidden md:block">
         <div className="wrap flex items-center justify-between gap-6 [&>*]:pointer-events-auto">

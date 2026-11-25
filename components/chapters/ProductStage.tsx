@@ -110,7 +110,7 @@ export function Turntable({ model, className = '' }: { model: ModelKey; classNam
 }
 
 /** Spec card (left), counter + next (bottom left), used-in chips and drag hint — the chrome of concept image 04. */
-export function ProductCard({ product, index, chapter, details = true }: { product: Product; index: number; total?: number; chapter?: string; details?: boolean }) {
+export function ProductCard({ product, index, chapter, details = true, heading: Heading = 'h2' }: { product: Product; index: number; total?: number; chapter?: string; details?: boolean; heading?: 'h1' | 'h2' | 'h3' }) {
   const variants = variantsFor(product);
   const [vi, setVi] = useState(() => defaultVariant(product));
   useEffect(() => setVi(defaultVariant(product)), [product]);
@@ -118,7 +118,7 @@ export function ProductCard({ product, index, chapter, details = true }: { produ
   return (
     <div className="panel pointer-events-auto w-full p-5 md:w-[440px] md:p-7">
       <p className="mono text-[10.5px] text-blue md:text-[12px]"><span className="hidden md:inline">{String(index + 1).padStart(2, '0')} · </span>Product · {chapter ?? product.short}</p>
-      <h2 className="font-display mb-1 mt-2 text-[28px] font-bold leading-[1.05] md:mb-2 md:mt-2.5 md:text-[46px] md:leading-none">{product.name}</h2>
+      <Heading className="font-display mb-1 mt-2 text-[28px] font-bold leading-[1.05] md:mb-2 md:mt-2.5 md:text-[46px] md:leading-none">{product.name}</Heading>
       <p className="font-display text-[17px] font-bold text-cyan md:text-[22px]">{product.range}</p>
       <p className="mb-4 mt-3 hidden text-[14.5px] leading-[1.6] text-ink-2 md:block">{product.description.split(/(?<=\.)\s/)[0]}</p>
       <div className="mb-3 mt-3 flex gap-1.5 overflow-x-auto md:mb-[18px] md:mt-0 md:flex-wrap md:overflow-visible" role="tablist" aria-label="Sizes">

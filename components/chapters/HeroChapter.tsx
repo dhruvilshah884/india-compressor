@@ -96,9 +96,11 @@ export default function HeroChapter() {
 
       <div className="wrap relative z-10 flex h-full flex-col">
         <div className="mt-auto max-w-[580px] pb-[112px] md:my-auto md:pb-12">
-          <p className="mono text-[10.5px] text-blue md:text-[12px]">● <span className="md:hidden">Since 2000 · Ahmedabad</span><span className="hidden md:inline">Engineered in Ahmedabad · Since 2000</span></p>
-          <h1 className="font-display mb-3 mt-2.5 text-[40px] font-bold leading-[1.02] text-ink md:mb-6 md:mt-4 md:text-[clamp(54px,5.2vw,80px)] md:leading-[0.98]">
-            Compressed air that <span className="text-red">never stops.</span>
+          <h1>
+            <span className="mono block text-[10.5px] text-blue md:text-[12px]">● Air compressor manufacturer · Ahmedabad<span className="hidden md:inline"> · Since 2000</span></span>
+            <span className="font-display mb-3 mt-2.5 block text-[40px] font-bold leading-[1.02] text-ink md:mb-6 md:mt-4 md:text-[clamp(54px,5.2vw,80px)] md:leading-[0.98]">
+              Compressed air that <span className="text-red">never stops.</span>
+            </span>
           </h1>
           <p className="max-w-[480px] text-[14.5px] leading-[1.55] text-ink-2 md:text-[18px] md:leading-[1.6]">
             <span className="md:hidden">Compressors, dryers, chillers and receiver tanks running 24/7 in 9 countries.</span>

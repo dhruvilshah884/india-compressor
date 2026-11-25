@@ -71,7 +71,7 @@ function MobileRange() {
                 {String(i + 1).padStart(2, '0')} / {total}
               </span>
             </div>
-            <ProductCard product={p} index={i} />
+            <ProductCard product={p} index={i} heading="h3" />
           </div>
         ))}
       </div>

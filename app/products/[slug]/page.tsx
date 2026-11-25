@@ -16,7 +16,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const p = bySlug((await params).slug);
   if (!p) return {};
-  return { title: `${p.name} (${p.range})`, description: p.description, alternates: { canonical: `/products/${p.slug}` } };
+  const title = `${p.name} Manufacturer in Ahmedabad (${p.range})`;
+  const description = `${p.name} (${p.range}) from Parth Air Compressor, Ahmedabad, Gujarat. ${p.description.split(/(?<=\.)\s/)[0]}`;
+  return {
+    title,
+    description,
+    alternates: { canonical: `/products/${p.slug}` },
+    openGraph: { title, description, url: `/products/${p.slug}`, type: 'website' },
+  };
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -24,7 +31,23 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   if (!p) notFound();
   const isScrew = p.slug === 'screw-air-compressor';
   const related = PRODUCTS.filter((x) => x.slug !== p.slug && (x.group === p.group || (p.inSystem && x.inSystem))).slice(0, 3);
-  const ld = { '@context': 'https://schema.org', '@type': 'Product', name: p.name, description: p.description, brand: { '@type': 'Brand', name: 'Parth' }, manufacturer: { '@type': 'Organization', name: SITE.name } };
+  const url = `${SITE.url}/products/${p.slug}`;
+  const ld = [
+    {
+      '@context': 'https://schema.org', '@type': 'Product', name: p.name, description: p.description, url,
+      image: `${url}/opengraph-image`, category: p.group,
+      brand: { '@type': 'Brand', name: 'Parth' }, manufacturer: { '@id': `${SITE.url}/#organization` },
+      additionalProperty: p.specs.map(([name, value]) => ({ '@type': 'PropertyValue', name, value })),
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+        { '@type': 'ListItem', position: 2, name: 'Products', item: `${SITE.url}/products` },
+        { '@type': 'ListItem', position: 3, name: p.name, item: url },
+      ],
+    },
+  ];
 
   return (
     <>

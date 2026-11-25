@@ -3,7 +3,7 @@ import CtaBand from '@/components/sections/CtaBand';
 import { STATS, SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'About Parth Air Compressor',
+  title: 'About Us — Air Compressor Manufacturer in Ahmedabad Since 2000',
   description: 'Manufacturing air compressors and compressed-air equipment in GIDC Vatva, Ahmedabad since 2000 — serving industries across India and 9 export countries.',
   alternates: { canonical: '/about' },
 };
